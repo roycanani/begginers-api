@@ -12,8 +12,8 @@ class PostsController extends BaseController<Post> {
       super.getAll(req, res);
     } else {
       try {
-        const items = await this.model.find(req.query as Partial<Post>);
-        res.send(items);
+        const posts = await this.model.find(req.query as Partial<Post>);
+        res.send(posts);
       } catch (error) {
         res.status(400).send(error);
       }
