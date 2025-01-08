@@ -9,11 +9,9 @@ class PostsController extends BaseController<Post> {
 
   async getAll(req: Request, res: Response) {
     if (!req.query) {
-      console.log("here1");
       super.getAll(req, res);
     } else {
       try {
-        console.log("here2");
         const items = await this.model.find(req.query as Partial<Post>);
         res.send(items);
       } catch (error) {
