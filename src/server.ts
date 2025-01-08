@@ -4,12 +4,13 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import express, { Express } from "express";
 import { commentsRouter } from "./comments/comments_route";
+import postRouter from "./posts/route";
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/comments', commentsRouter);
-
+app.use("/comments", commentsRouter);
+app.use("/posts", postRouter);
 
 const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
