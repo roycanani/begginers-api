@@ -3,22 +3,20 @@ import mongoose from "mongoose";
 export interface Comments {
     postId: string;
     content: string;
-    userId: string;
+    sender: string;
   }
 
 const CommentSchema = new mongoose.Schema({
     postId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Post',
+        type: String,
         required: true
     },
     content: {
         type: String,
         required: true
     },
-    userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+    sender: {
+        type: String,
         required: true
     },
 });
