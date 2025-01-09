@@ -5,7 +5,7 @@
 POST http://localhost:3000/posts
 
 {
-  "title": "Hello", "sender": "Uri", "content": "Hello World!"
+  "title": "Hello", "senderId": "677ff5652758ff9eb4710a1c", "content": "Hello World!"
 }
 
 ### Get All posts
