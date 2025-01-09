@@ -1,23 +1,25 @@
 import mongoose from "mongoose";
 
-export interface Comments {
-  postId: string;
+export interface Comment {
+  postId: mongoose.Schema.Types.ObjectId;
   content: string;
-  sender: string;
+  senderId: mongoose.Schema.Types.ObjectId;
 }
 
-const CommentSchema = new mongoose.Schema({
+const CommentSchema = new mongoose.Schema<Comment>({
   postId: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Post",
     required: true,
   },
   content: {
     type: String,
   },
-  sender: {
-    type: String,
+  senderId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
     required: true,
   },
 });
 
-export const commentModel = mongoose.model<Comments>("Comment", CommentSchema);
+export const commentModel = mongoose.model<Comment>("Comment", CommentSchema);
